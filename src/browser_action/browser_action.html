@@ -1,19 +1,47 @@
 <!doctype html>
 <style type="text/css">
 	#mainPopup {
-		padding: 10px;
-		height: 200px;
 		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+		font-family: 'Montserrat Bold',Helvetica, Ubuntu, Arial, sans-serif;
+        background-color: #9B59B6;
+        color: #FFF;
 	}
 	h1 {
 		font-size: 2em;
+        padding: 50px 10px 10px 10px;
 	}
+    h2 {
+        font-size: 2em;
+        line-height: 89px;
+        margin: 0;
+    }
+    #message {
+        padding: 10px;
+    }
+    .actionButton {
+        padding: 0 10px;
+    }
+    .actionButton:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    #sendLink {
+        background-color: #1ABC9C;
+    }
+    #sendClip {
+        background-color: #2ECC71;
+    }
+    p {
+        font-size: 15px;
+    }
 </style>
 
 <div id="mainPopup">
-    <h1>YO</h1>
-    <p id="message">Your link has been sent!</p>
+    <h1>YoMarq</h1>
+    <p id="message"></p>
+    <h2 class="actionButton" id="sendLink">Send current url</h2>
+    <h2 class="actionButton" id="sendClip">Send current clipboard</h2>
+    <input id="clip" type="text" hidden="hidden">
 </div>
 <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/src/options_custom/lib/store.js"></script>

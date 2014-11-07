@@ -2,6 +2,13 @@ var settings = new Store("settings");
 var username = settings.get('username');
 
 if (username) {
+    document.getElementById('sendLink').addEventListner('click', sendLink);
+    document.getElementById('sendClip').addEventListner('click', sendClip);
+} else {
+    document.getElementById("message").innerHTML = "It seems like you haven't set your YO username yet. Please configure YOMarq with your YO username under the Chrome Extensions settings.";
+}
+
+function sendLink() {
     chrome.tabs.query({
             currentWindow: true,
             active: true
@@ -21,6 +28,22 @@ if (username) {
             }
         }
     );
-} else {
-    document.getElementById("message").innerHTML = "It seems like you haven't set your YO username yet. Please configure YOMarq with your YO username under the Chrome Extensions settings.";
+}
+
+function sendClip() {
+    var clip = '',
+        input = $('#clip').val('').select();
+    if(document.execCommand('paste')) {
+        clip = input.val();
+    }
+    input.val('');
+    $.post('http://localhost:1337/yo/clip', {
+        username: settings.get('username'),
+        clip: clip
+    }, function(data) {
+        console.log(data);
+        if (data.result === "OK") {
+            document.getElementById("message").innerHTML = "Your clipboard has been sent to "+settings.get('username') ;
+        }
+    });
 }

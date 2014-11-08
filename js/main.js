@@ -2,8 +2,8 @@ var settings = new Store("settings");
 var username = settings.get('username');
 
 if (username) {
-    document.getElementById('sendLink').addEventListner('click', sendLink);
-    document.getElementById('sendClip').addEventListner('click', sendClip);
+    document.getElementById('sendLink').addEventListener('click', sendLink);
+    document.getElementById('sendClip').addEventListener('click', sendClip);
 } else {
     document.getElementById("message").innerHTML = "It seems like you haven't set your YO username yet. Please configure YOMarq with your YO username under the Chrome Extensions settings.";
 }

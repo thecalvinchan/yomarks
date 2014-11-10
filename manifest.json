@@ -1,6 +1,6 @@
 {
   "name": "YoClip",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Yo clipboard on yo phone",
   "homepage_url": "http://calvinchan.me",
@@ -13,12 +13,13 @@
   "options_page": "src/options_custom/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "browser action demo",
+    "default_title": "YoClip",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
     "tabs",
-    "clipboardWrite",
-    "http://localhost:1337/"
+    "clipboardRead",
+    "https://yoclip.herokuapp.com/",
+    "http://yoclip.herokuapp.com/"
   ]
 }
